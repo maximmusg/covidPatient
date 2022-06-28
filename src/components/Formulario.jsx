@@ -4,6 +4,9 @@ import Error from './Error'
 
 const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
   const [nombre, setNombre] = useState('')
+  const [edad, setEdad] = useState('')
+  const [dni, setDni] = useState('')
+  const [telefono, setTelefono] = useState('')
   const [email, setEmail] = useState('')
   const [fecha, setFecha] = useState('')
   const [sintomas, setSintomas] = useState('')
@@ -13,6 +16,9 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
   useEffect(()=> {
     if(Object.keys(paciente).length > 0){
       setNombre(paciente.nombre)
+      setEdad(paciente.edad)
+      setDni(paciente.dni)
+      setTelefono(paciente.telefono)
       setEmail(paciente.email)
       setFecha(paciente.fecha)
       setSintomas(paciente.sintomas)
@@ -35,7 +41,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
     //validando el formulario 
 
-    if([nombre, email, fecha, sintomas].includes('')){
+    if([nombre, edad, dni, telefono, email, fecha, sintomas].includes('')){
       console.log('Hay al menos un campo vacio')
       setError(true)
       return;
@@ -44,7 +50,10 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
     //objeto de pacientes
     const objetoPaciente = {
-      nombre, 
+      nombre,
+      edad,
+      dni,
+      telefono, 
       email, 
       fecha, 
       sintomas,
@@ -66,6 +75,9 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
     //reiniciar el formulario
 
     setNombre('')
+    setEdad('')
+    setDni('')
+    setTelefono('')
     setEmail('')
     setFecha('')
     setSintomas('')
@@ -96,6 +108,42 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
             className='border-2 w-full mt-2 p-2 placeholder-gray-400 rounded-md'
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
+          />
+        </div>
+
+        <div className='mb-5'>
+          <label htmlFor='edad' className='block text-gray-700 uppercase font-bold'>Edad</label>
+          <input 
+            id='edad'
+            type='number'
+            placeholder='Edad del paciente' 
+            className='border-2 w-full mt-2 p-2 placeholder-gray-400 rounded-md'
+            value={edad}
+            onChange={(e) => setEdad(e.target.value)}
+          />
+        </div>
+
+        <div className='mb-5'>
+          <label htmlFor='dni' className='block text-gray-700 uppercase font-bold'>DNI</label>
+          <input 
+            id='dni'
+            type='number'
+            placeholder='DNI del paciente' 
+            className='border-2 w-full mt-2 p-2 placeholder-gray-400 rounded-md'
+            value={dni}
+            onChange={(e) => setDni(e.target.value)}
+          />
+        </div>
+
+        <div className='mb-5'>
+          <label htmlFor='telefono' className='block text-gray-700 uppercase font-bold'>Telefono</label>
+          <input 
+            id='telefono'
+            type='number'
+            placeholder='numero de telefono del paciente' 
+            className='border-2 w-full mt-2 p-2 placeholder-gray-400 rounded-md'
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
           />
         </div>
 

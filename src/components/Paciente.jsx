@@ -2,7 +2,7 @@ import React from 'react'
 
 const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
 
-  const {nombre, email, fecha, sintomas, id} = paciente;
+  const {nombre, edad, dni, telefono, email, fecha, sintomas, id} = paciente;
 
   const handleEliminar = () => {
     const respuesta = confirm('Deseas eliminar este paciente?');
@@ -17,6 +17,18 @@ const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
         <p className='font-bold mb-3 uppercase text-gray-700'>
             Nombre: {""}
             <span className='font-normal normal-case'>{nombre}</span>
+        </p>
+        <p className='font-bold mb-3 uppercase text-gray-700'>
+            edad: {""}
+            <span className='font-normal normal-case'>{edad}</span>
+        </p>
+        <p className='font-bold mb-3 uppercase text-gray-700'>
+            dni: {""}
+            <span className='font-normal normal-case'>{dni}</span>
+        </p>
+        <p className='font-bold mb-3 uppercase text-gray-700'>
+            telefono: {""}
+            <span className='font-normal normal-case'>{telefono}</span>
         </p>
         <p className='font-bold mb-3 uppercase text-gray-700'>
            email: {""}
